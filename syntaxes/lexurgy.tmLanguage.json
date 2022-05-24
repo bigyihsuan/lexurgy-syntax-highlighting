@@ -6,6 +6,9 @@
         },
         {
             "include": "#symbol"
+        },
+        {
+            "include": "#feature"
         }
     ],
     "repository": {
@@ -13,40 +16,55 @@
             "name": "comment.line.number-sign",
             "match": "#.*\\n"
         },
+        "feature": {
+            "begin": "^([Ff]eature)",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.feature.lexurgy"
+                }
+            },
+            "patterns": [
+                { "include": "#featurename" },
+                { "include": "#featurelist" }
+            ],
+            "end": "\\n"
+        },
         "symbol": {
             "begin": "^([Ss]ymbol) ",
             "beginCaptures": {
                 "1": {
                     "name": "keyword.other.symbol.lexurgy"
-                },
-                "2": {
-                    "name": "constant.character.symbolname.lexurgy"
                 }
             },
             "patterns": [
-                { "include": "#NAME" },
+                { "include": "#symbolname" },
                 { "include": "#matrix" }
             ],
             "end": "\\n"
         },
+        "featurelist": {
+            "name": "meta.matrix",
+            "begin": "\\(",
+            "end": "\\)",
+            "patterns": [{ "include": "#NAME" }]
+        },
         "matrix": {
-            "name": "entity.name.class",
+            "name": "meta.matrix",
             "begin": "\\[",
             "end": "\\]",
-            "patterns": [{
-                "name": "variable.language.lexurgy",
-                "match": "[A-Za-z0-9]+"
-            }]
+            "patterns": [{ "include": "#NAME" }]
         },
         "NAME": {
-            "name": "constant.character.lexurgy",
-            "match": "[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&]+?"
+            "name": "support.type.property-name.name.lexurgy",
+            "match": "[A-Za-z0-9]+"
         },
-        "keywords": {
-            "patterns": [{
-                "name": "keyword.control.lexurgy",
-                "match": "\\b([Ff]eature|[Cc]lass|[Ss]ymbol|[Dd]iacritic)\\b"
-            }]
+        "symbolname": {
+            "name": "string.quoted.single.symbolname.lexurgy",
+            "match": "((\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
+        },
+        "featurename": {
+            "name": "support.type.featurename.lexurgy",
+            "match": "((\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
         }
     },
     "scopeName": "source.lexurgy"
