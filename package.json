@@ -21,5 +21,6 @@
             "scopeName": "source.lexurgy",
             "path": "./syntaxes/lexurgy.tmLanguage.json"
         }]
-    }
+    },
+    "repository": "https://github.com/bigyihsuan/lexurgy-syntax-highlighting"
 }
