@@ -6,11 +6,11 @@
         { "include": "#keywords" },
         { "include": "#operators" },
         { "include": "#constants" },
+        { "include": "#matrix" },
         { "include": "#symbol" },
         { "include": "#feature" },
         { "include": "#diacritic" },
         { "include": "#class" },
-        { "include": "#matrix" },
         { "include": "#class-ref" },
         { "include": "#capture-ref" },
         { "include": "#rule-name" },
@@ -30,7 +30,7 @@
                 }
             },
             "patterns": [{
-                    "include": "#feature-name"
+                    "include": "#feature-category"
                 },
                 {
                     "include": "#feature-list"
@@ -130,18 +130,18 @@
             "patterns": [{ "include": "#symbol-name" }, { "include": "#class-ref" }]
         },
         "feature-list": {
-            "name": "meta.matrix.lexurgy",
+            "name": "meta.feature-list.lexurgy",
             "begin": "\\(",
             "end": "\\)",
             "patterns": [{
-                "include": "#NAME"
+                "include": "#feature-value"
             }]
         },
         "feature-binary": {
             "name": "keyword.operator.binary-feature.lexurgy",
             "match": "\\+",
             "patterns": [{
-                "include": "#NAME"
+                "include": "#feature-value"
             }]
         },
         "matrix": {
@@ -149,11 +149,11 @@
             "begin": "\\[",
             "end": "\\]",
             "patterns": [{
-                "include": "#NAME"
+                "include": "#feature-value"
             }]
         },
-        "NAME": {
-            "name": "support.type.property-name.name.lexurgy",
+        "feature-value": {
+            "name": "support.type.property-name.feature-value.lexurgy",
             "match": "[A-Za-z0-9]+"
         },
         "class-name": {
@@ -164,8 +164,8 @@
             "name": "string.quoted.single.symbol-name.lexurgy",
             "match": "((\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
         },
-        "feature-name": {
-            "name": "support.type.feature-name.lexurgy",
+        "feature-category": {
+            "name": "support.type.feature-category.lexurgy",
             "match": "((\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
         },
         "diacritic-name": {
@@ -221,6 +221,10 @@
                 {
                     "name": "keyword.operator.anchor.lexurgy",
                     "match": "_"
+                },
+                {
+                    "name": "constant.character.escape",
+                    "match": "\\\\."
                 }
             ]
         }
