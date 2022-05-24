@@ -12,12 +12,17 @@
         },
         {
             "include": "#diacritic"
-        }
+        },
+        {
+            "include": "#class"
+        },
+        { "include": "#class-reference" },
+        { "include": "#capture-ref" }
     ],
     "repository": {
         "comment": {
             "name": "comment.line.number-sign",
-            "match": "#.*\\n"
+            "match": "\\s*#.*"
         },
         "feature": {
             "begin": "^([Ff]eature)",
@@ -73,8 +78,41 @@
             ],
             "end": "\\n"
         },
+        "class": {
+            "begin": "^([Cc]lass) ",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.class.lexurgy"
+                }
+            },
+            "patterns": [{
+                    "include": "#class-name"
+                },
+                {
+                    "include": "#symbol-list"
+                }
+            ],
+            "end": "\\n"
+        },
+        "class-reference": {
+            "name": "variable.other.lexurgy",
+            "match": "\\@[A-Za-z0-9]+"
+        },
+        "capture-ref": {
+            "name": "string.other.capture-ref.lexurgy",
+            "match": "\\$[0-9]+"
+        },
+
+        "symbol-list": {
+            "name": "meta.symbol-list.lexurgy",
+            "begin": "\\{",
+            "end": "\\}",
+            "patterns": [{
+                "include": "#symbol-name"
+            }]
+        },
         "feature-list": {
-            "name": "meta.matrix",
+            "name": "meta.matrix.lexurgy",
             "begin": "\\(",
             "end": "\\)",
             "patterns": [{
@@ -89,7 +127,7 @@
             }]
         },
         "matrix": {
-            "name": "meta.matrix",
+            "name": "meta.matrix.lexurgy",
             "begin": "\\[",
             "end": "\\]",
             "patterns": [{
@@ -98,6 +136,10 @@
         },
         "NAME": {
             "name": "support.type.property-name.name.lexurgy",
+            "match": "[A-Za-z0-9]+"
+        },
+        "class-name": {
+            "name": "variable.other.class-name.lexurgy",
             "match": "[A-Za-z0-9]+"
         },
         "symbol-name": {
