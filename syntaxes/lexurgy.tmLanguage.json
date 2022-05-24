@@ -1,23 +1,19 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "Lexurgy",
-    "patterns": [{
-            "include": "#comment"
-        },
-        {
-            "include": "#symbol"
-        },
-        {
-            "include": "#feature"
-        },
-        {
-            "include": "#diacritic"
-        },
-        {
-            "include": "#class"
-        },
+    "patterns": [
+        { "include": "#comment" },
+        { "include": "#symbol" },
+        { "include": "#feature" },
+        { "include": "#diacritic" },
+        { "include": "#class" },
+        { "include": "#matrix" },
         { "include": "#class-reference" },
-        { "include": "#capture-ref" }
+        { "include": "#capture-ref" },
+        { "include": "#rule-name" },
+        { "include": "#rule-then" },
+        { "include": "#rule-modifier" },
+        { "include": "#keywords" }
     ],
     "repository": {
         "comment": {
@@ -94,13 +90,29 @@
             ],
             "end": "\\n"
         },
+        "rule-name": {
+            "name": "entity.name.class.rule-name.lexurgy",
+            "match": "^[A-Za-z0-9]+(-([A-Za-z0-9]+))*(\\s|:)"
+        },
+        "rule-then": {
+            "name": "entity.name.function.rule-then.lexurgy",
+            "match": "\\s*[Tt]hen\\:\\s"
+        },
+        "rule-modifier": {
+            "name": "storage.modifier.rule-modifier.lexurgy",
+            "match": "([Pp]ropagate|LTR|Ltr|ltr|RTL|Rtl|rtl)"
+        },
         "class-reference": {
-            "name": "variable.other.lexurgy",
+            "name": "variable.other.class-reference.lexurgy",
             "match": "\\@[A-Za-z0-9]+"
         },
         "capture-ref": {
-            "name": "string.other.capture-ref.lexurgy",
+            "name": "string.quoted.other.capture-ref.lexurgy",
             "match": "\\$[0-9]+"
+        },
+        "keywords": {
+            "name": "keyword.control.lexurgy",
+            "match": "unchanged|explicit|clear"
         },
 
         "symbol-list": {
