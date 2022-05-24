@@ -5,7 +5,7 @@
             "include": "#comment"
         },
         {
-            "include": "#symbolWithMatrix"
+            "include": "#symbol"
         }
     ],
     "repository": {
@@ -13,19 +13,20 @@
             "name": "comment.line.number-sign",
             "match": "#.*\\n"
         },
-        "symbolWithMatrix": {
-            "begin": "^([Ss]ymbol) ([^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&]+?) ",
+        "symbol": {
+            "begin": "^([Ss]ymbol) ",
             "beginCaptures": {
                 "1": {
-                    "name": "keyword.other.lexurgy"
+                    "name": "keyword.other.symbol.lexurgy"
                 },
                 "2": {
-                    "name": "constant.character.lexurgy"
+                    "name": "constant.character.symbolname.lexurgy"
                 }
             },
-            "patterns": [{
-                "include": "#matrix"
-            }],
+            "patterns": [
+                { "include": "#NAME" },
+                { "include": "#matrix" }
+            ],
             "end": "\\n"
         },
         "matrix": {
@@ -39,7 +40,7 @@
         },
         "NAME": {
             "name": "constant.character.lexurgy",
-            "match": "[^\\s]+"
+            "match": "[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&]+?"
         },
         "keywords": {
             "patterns": [{
