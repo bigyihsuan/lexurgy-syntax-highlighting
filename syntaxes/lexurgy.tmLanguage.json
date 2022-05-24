@@ -3,17 +3,19 @@
     "name": "Lexurgy",
     "patterns": [
         { "include": "#comment" },
+        { "include": "#keywords" },
+        { "include": "#operators" },
+        { "include": "#constants" },
         { "include": "#symbol" },
         { "include": "#feature" },
         { "include": "#diacritic" },
         { "include": "#class" },
         { "include": "#matrix" },
-        { "include": "#class-reference" },
+        { "include": "#class-ref" },
         { "include": "#capture-ref" },
         { "include": "#rule-name" },
-        { "include": "#rule-then" },
-        { "include": "#rule-modifier" },
-        { "include": "#keywords" }
+        { "include": "#rule-control-flow" },
+        { "include": "#rule-modifier" }
     ],
     "repository": {
         "comment": {
@@ -92,18 +94,18 @@
         },
         "rule-name": {
             "name": "entity.name.class.rule-name.lexurgy",
-            "match": "^[A-Za-z0-9]+(-([A-Za-z0-9]+))*(\\s|:)"
+            "match": "^[A-Za-z0-9]+(-([A-Za-z0-9]+))*(?=.*?:$)"
         },
-        "rule-then": {
-            "name": "entity.name.function.rule-then.lexurgy",
-            "match": "\\s*[Tt]hen\\:\\s"
+        "rule-control-flow": {
+            "name": "keyword.control.rule-control-flow.lexurgy",
+            "match": "([Tt]hen|[Ee]lse)"
         },
         "rule-modifier": {
             "name": "storage.modifier.rule-modifier.lexurgy",
             "match": "([Pp]ropagate|LTR|Ltr|ltr|RTL|Rtl|rtl)"
         },
-        "class-reference": {
-            "name": "variable.other.class-reference.lexurgy",
+        "class-ref": {
+            "name": "variable.other.class-ref.lexurgy",
             "match": "\\@[A-Za-z0-9]+"
         },
         "capture-ref": {
@@ -111,17 +113,21 @@
             "match": "\\$[0-9]+"
         },
         "keywords": {
-            "name": "keyword.control.lexurgy",
+            "name": "keyword.other.lexurgy",
             "match": "unchanged|explicit|clear"
+        },
+        "constants": {
+            "name": "constant.lexurgy",
+            "patterns": [
+                { "name": "constant.language.syl.lexurgy", "match": "\\<[Ss]yl\\>" }
+            ]
         },
 
         "symbol-list": {
             "name": "meta.symbol-list.lexurgy",
             "begin": "\\{",
             "end": "\\}",
-            "patterns": [{
-                "include": "#symbol-name"
-            }]
+            "patterns": [{ "include": "#symbol-name" }, { "include": "#class-ref" }]
         },
         "feature-list": {
             "name": "meta.matrix.lexurgy",
@@ -169,6 +175,54 @@
         "diacritic-modifier": {
             "name": "storage.modifier.diacritic.lexurgy",
             "match": "\\s\\(([Bb]efore)|([Aa]fter)|([Ff]loating)\\)\\s"
+        },
+        "operators": {
+            "name": "keyword.operator.lexurgy",
+            "patterns": [{
+                    "name": "keyword.operator.null.lexurgy",
+                    "match": "\\*"
+                },
+                {
+                    "name": "keyword.operator.negate.lexurgy",
+                    "match": "\\!"
+                },
+                {
+                    "name": "keyword.operator.syllable-boundary.lexurgy",
+                    "match": "\\."
+                },
+                {
+                    "name": "keyword.operator.word-boundary.lexurgy",
+                    "match": "\\${1,2}"
+                },
+                {
+                    "name": "keyword.operator.intersection.lexurgy",
+                    "match": "\\&\\!?"
+                },
+                {
+                    "name": "keyword.operator.change.lexurgy",
+                    "match": "=>"
+                },
+                {
+                    "name": "keyword.operator.condition.lexurgy",
+                    "match": "/{1,1}"
+                },
+                {
+                    "name": "keyword.operator.exclusion.lexurgy",
+                    "match": "//"
+                },
+                {
+                    "name": "keyword.operator.at-least-one.lexurgy",
+                    "match": "\\+"
+                },
+                {
+                    "name": "keyword.operator.optional.lexurgy",
+                    "match": "\\?"
+                },
+                {
+                    "name": "keyword.operator.anchor.lexurgy",
+                    "match": "_"
+                }
+            ]
         }
     },
     "scopeName": "source.lexurgy"
