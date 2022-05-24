@@ -26,9 +26,12 @@
                     "name": "keyword.other.feature.lexurgy"
                 }
             },
-            "patterns": [
-                { "include": "#feature-name" },
-                { "include": "#featurelist" }
+            "patterns": [{
+                    "include": "#feature-name"
+                },
+                {
+                    "include": "#featurelist"
+                }
             ],
             "end": "\\n"
         },
@@ -39,9 +42,12 @@
                     "name": "keyword.other.symbol.lexurgy"
                 }
             },
-            "patterns": [
-                { "include": "#symbol-name" },
-                { "include": "#matrix" }
+            "patterns": [{
+                    "include": "#symbol-name"
+                },
+                {
+                    "include": "#matrix"
+                }
             ],
             "end": "\\n"
         },
@@ -52,26 +58,33 @@
                     "name": "keyword.other.symbol.lexurgy"
                 }
             },
-            "patterns": [
-                { "include": "#diacritic-modifier" },
-                { "include": "#diacritic-name" },
-                { "include": "#matrix" }
+            "patterns": [{
+                    "include": "#diacritic-modifier"
+                },
+                {
+                    "include": "#diacritic-name"
+                },
+                {
+                    "include": "#matrix"
+                }
             ],
             "end": "\\n"
         },
-
-
         "featurelist": {
             "name": "meta.matrix",
             "begin": "\\(",
             "end": "\\)",
-            "patterns": [{ "include": "#NAME" }]
+            "patterns": [{
+                "include": "#NAME"
+            }]
         },
         "matrix": {
             "name": "meta.matrix",
             "begin": "\\[",
             "end": "\\]",
-            "patterns": [{ "include": "#NAME" }]
+            "patterns": [{
+                "include": "#NAME"
+            }]
         },
         "NAME": {
             "name": "support.type.property-name.name.lexurgy",
