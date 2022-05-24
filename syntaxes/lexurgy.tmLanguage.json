@@ -1,0 +1,52 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Lexurgy",
+    "patterns": [{
+            "include": "#comment"
+        },
+        {
+            "include": "#symbolWithMatrix"
+        }
+    ],
+    "repository": {
+        "comment": {
+            "name": "comment.line.number-sign",
+            "match": "#.*\\n"
+        },
+        "symbolWithMatrix": {
+            "begin": "^([Ss]ymbol) ([^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&]+?) ",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.lexurgy"
+                },
+                "2": {
+                    "name": "constant.character.lexurgy"
+                }
+            },
+            "patterns": [{
+                "include": "#matrix"
+            }],
+            "end": "\\n"
+        },
+        "matrix": {
+            "name": "entity.name.class",
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [{
+                "name": "variable.language.lexurgy",
+                "match": "[A-Za-z0-9]+"
+            }]
+        },
+        "NAME": {
+            "name": "constant.character.lexurgy",
+            "match": "[^\\s]+"
+        },
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.lexurgy",
+                "match": "\\b([Ff]eature|[Cc]lass|[Ss]ymbol|[Dd]iacritic)\\b"
+            }]
+        }
+    },
+    "scopeName": "source.lexurgy"
+}

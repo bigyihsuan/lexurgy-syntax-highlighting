@@ -1,0 +1,25 @@
+{
+    "name": "lexurgy-syntax-highlighting",
+    "displayName": "Lexurgy Syntax Highlighting",
+    "description": "Syntax highlighting for the Lexurgy sound change applier.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.67.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "lexurgy",
+            "aliases": ["Lexurgy", "lsc", "lexurgy"],
+            "extensions": [".lsc"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "lexurgy",
+            "scopeName": "source.lexurgy",
+            "path": "./syntaxes/lexurgy.tmLanguage.json"
+        }]
+    }
+}
