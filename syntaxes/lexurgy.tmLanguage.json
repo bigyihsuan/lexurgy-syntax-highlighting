@@ -9,6 +9,9 @@
         },
         {
             "include": "#feature"
+        },
+        {
+            "include": "#diacritic"
         }
     ],
     "repository": {
@@ -24,7 +27,7 @@
                 }
             },
             "patterns": [
-                { "include": "#featurename" },
+                { "include": "#feature-name" },
                 { "include": "#featurelist" }
             ],
             "end": "\\n"
@@ -37,11 +40,27 @@
                 }
             },
             "patterns": [
-                { "include": "#symbolname" },
+                { "include": "#symbol-name" },
                 { "include": "#matrix" }
             ],
             "end": "\\n"
         },
+        "diacritic": {
+            "begin": "^([Dd]iacritic) ",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.symbol.lexurgy"
+                }
+            },
+            "patterns": [
+                { "include": "#diacritic-modifier" },
+                { "include": "#diacritic-name" },
+                { "include": "#matrix" }
+            ],
+            "end": "\\n"
+        },
+
+
         "featurelist": {
             "name": "meta.matrix",
             "begin": "\\(",
@@ -58,13 +77,21 @@
             "name": "support.type.property-name.name.lexurgy",
             "match": "[A-Za-z0-9]+"
         },
-        "symbolname": {
-            "name": "string.quoted.single.symbolname.lexurgy",
+        "symbol-name": {
+            "name": "string.quoted.single.symbol-name.lexurgy",
             "match": "((\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
         },
-        "featurename": {
-            "name": "support.type.featurename.lexurgy",
+        "feature-name": {
+            "name": "support.type.feature-name.lexurgy",
             "match": "((\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
+        },
+        "diacritic-name": {
+            "name": "string.quoted.single.diacritic-name.lexurgy",
+            "match": "([A-Za-z0-9]|(\\\\.)|[^ \\n\\r,.=>()*\\[\\]{}+?\/\\-\\\\-_:!~$@#&])+"
+        },
+        "diacritic-modifier": {
+            "name": "storage.modifier.diacritic.lexurgy",
+            "match": "\\s\\(([Bb]efore)|([Aa]fter)|([Ff]loating)\\)\\s"
         }
     },
     "scopeName": "source.lexurgy"
