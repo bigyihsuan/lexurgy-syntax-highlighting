@@ -4,7 +4,7 @@
     "description": "Syntax highlighting for the Lexurgy sound change applier.",
     "publisher": "bigyihsuan9999",
     "author": { "name": "bigyihsuan" },
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "vscode": "^1.67.0"
     },

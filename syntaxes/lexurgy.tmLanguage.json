@@ -4,7 +4,6 @@
     "patterns": [
         { "include": "#comment" },
         { "include": "#keywords" },
-        { "include": "#operators" },
         { "include": "#constants" },
         { "include": "#matrix" },
         { "include": "#symbol" },
@@ -15,7 +14,8 @@
         { "include": "#capture-ref" },
         { "include": "#rule-name" },
         { "include": "#rule-control-flow" },
-        { "include": "#rule-modifier" }
+        { "include": "#rule-modifier" },
+        { "include": "#operators" }
     ],
     "repository": {
         "comment": {
