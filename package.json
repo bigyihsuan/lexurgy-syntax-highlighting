@@ -2,6 +2,8 @@
     "name": "lexurgy-syntax-highlighting",
     "displayName": "Lexurgy Syntax Highlighting",
     "description": "Syntax highlighting for the Lexurgy sound change applier.",
+    "publisher": "bigyihsuan",
+    "author": { "name": "bigyihsuan" },
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.67.0"
