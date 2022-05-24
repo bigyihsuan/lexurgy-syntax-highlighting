@@ -30,7 +30,10 @@
                     "include": "#feature-name"
                 },
                 {
-                    "include": "#featurelist"
+                    "include": "#feature-list"
+                },
+                {
+                    "include": "#feature-binary"
                 }
             ],
             "end": "\\n"
@@ -70,10 +73,17 @@
             ],
             "end": "\\n"
         },
-        "featurelist": {
+        "feature-list": {
             "name": "meta.matrix",
             "begin": "\\(",
             "end": "\\)",
+            "patterns": [{
+                "include": "#NAME"
+            }]
+        },
+        "feature-binary": {
+            "name": "keyword.operator.binary-feature.lexurgy",
+            "match": "\\+",
             "patterns": [{
                 "include": "#NAME"
             }]
