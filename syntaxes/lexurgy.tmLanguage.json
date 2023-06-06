@@ -89,13 +89,31 @@
                 },
                 {
                     "include": "#symbol-list"
+                },
+                {
+                    "include": "#matrix"
+                },
+                {
+                    "include": "#operators"
                 }
             ],
             "end": "(?=#|\\n)"
         },
         "element": {
-            "name": "keyword.other.element.lexurgy",
-            "match": "(^|\\s)([Ee]lement)(\\s|$)"
+            "begin": "^([Ee]lement) ",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.element.lexurgy"
+                }
+            },
+            "patterns": [{
+                    "include": "#class-name"
+                },
+                {
+                    "include": "#symbol-list"
+                }
+            ],
+            "end": "(?=#|\\n)"
         },
         "rule-name": {
             "name": "entity.name.class.rule-name.lexurgy",
