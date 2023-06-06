@@ -119,7 +119,7 @@
         },
         "keywords": {
             "name": "keyword.other.lexurgy",
-            "match": "unchanged|explicit|clear"
+            "match": "(^|\\s)(unchanged|explicit|clear)(\\s|$)"
         },
         "constants": {
             "name": "constant.lexurgy",
