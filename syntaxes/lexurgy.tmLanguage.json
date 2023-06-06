@@ -107,7 +107,7 @@
         },
         "rule-modifier": {
             "name": "storage.modifier.rule-modifier.lexurgy",
-            "match": "([Pp]ropagate|LTR|Ltr|ltr|RTL|Rtl|rtl)"
+            "match": "([Pp]ropagate|LTR|Ltr|ltr|RTL|Rtl|rtl|[Cc]leanup)"
         },
         "class-ref": {
             "name": "variable.other.class-ref.lexurgy",
