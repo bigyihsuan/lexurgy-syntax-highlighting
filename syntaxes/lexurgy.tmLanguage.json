@@ -9,6 +9,7 @@
         { "include": "#symbol" },
         { "include": "#feature" },
         { "include": "#diacritic" },
+        { "include": "#element" },
         { "include": "#class" },
         { "include": "#class-ref" },
         { "include": "#capture-ref" },
@@ -91,6 +92,10 @@
                 }
             ],
             "end": "\\n"
+        },
+        "element": {
+            "name": "keyword.other.element.lexurgy",
+            "match": "(^|\\s)([Ee]lement)(\\s|$)"
         },
         "rule-name": {
             "name": "entity.name.class.rule-name.lexurgy",
