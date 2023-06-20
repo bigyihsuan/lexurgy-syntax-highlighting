@@ -9,6 +9,7 @@
         { "include": "#symbol" },
         { "include": "#feature" },
         { "include": "#diacritic" },
+        { "include": "#element" },
         { "include": "#class" },
         { "include": "#class-ref" },
         { "include": "#capture-ref" },
@@ -39,7 +40,7 @@
                     "include": "#feature-binary"
                 }
             ],
-            "end": "\\n"
+            "end": "(?=#|\\n)"
         },
         "symbol": {
             "begin": "^([Ss]ymbol) ",
@@ -55,7 +56,7 @@
                     "include": "#matrix"
                 }
             ],
-            "end": "\\n"
+            "end": "(?=#|\\n)"
         },
         "diacritic": {
             "begin": "^([Dd]iacritic) ",
@@ -74,7 +75,7 @@
                     "include": "#matrix"
                 }
             ],
-            "end": "\\n"
+            "end": "(?=#|\\n)"
         },
         "class": {
             "begin": "^([Cc]lass) ",
@@ -88,13 +89,35 @@
                 },
                 {
                     "include": "#symbol-list"
+                },
+                {
+                    "include": "#matrix"
+                },
+                {
+                    "include": "#operators"
                 }
             ],
-            "end": "\\n"
+            "end": "(?=#|\\n)"
+        },
+        "element": {
+            "begin": "^([Ee]lement) ",
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.other.element.lexurgy"
+                }
+            },
+            "patterns": [{
+                    "include": "#class-name"
+                },
+                {
+                    "include": "#symbol-list"
+                }
+            ],
+            "end": "(?=#|\\n)"
         },
         "rule-name": {
             "name": "entity.name.class.rule-name.lexurgy",
-            "match": "^[A-Za-z0-9]+(-([A-Za-z0-9]+))*(?=.*?:$)"
+            "match": "^[A-Za-z0-9]+(-([A-Za-z0-9]+))*(?=.*?:)"
         },
         "rule-control-flow": {
             "name": "keyword.control.rule-control-flow.lexurgy",
@@ -102,7 +125,7 @@
         },
         "rule-modifier": {
             "name": "storage.modifier.rule-modifier.lexurgy",
-            "match": "([Pp]ropagate|LTR|Ltr|ltr|RTL|Rtl|rtl)"
+            "match": "([Pp]ropagate|LTR|Ltr|ltr|RTL|Rtl|rtl|[Cc]leanup)"
         },
         "class-ref": {
             "name": "variable.other.class-ref.lexurgy",
@@ -114,7 +137,7 @@
         },
         "keywords": {
             "name": "keyword.other.lexurgy",
-            "match": "unchanged|explicit|clear"
+            "match": "(^|\\s)(unchanged|explicit|clear)(\\s|$)"
         },
         "constants": {
             "name": "constant.lexurgy",
