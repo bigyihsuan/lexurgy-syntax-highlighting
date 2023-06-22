@@ -6,8 +6,20 @@ Basic syntax highlighting for the [Lexurgy Sound Changer](https://www.lexurgy.co
 
 * `.lsc`
 
+## Links
+
+* [Lexurgy](https://www.lexurgy.com/sc)
+* [Repository](https://github.com/bigyihsuan/lexurgy-syntax-highlighting)
+* [Extension Store Page](https://marketplace.visualstudio.com/items?itemName=bigyihsuan9999.lexurgy-syntax-highlighting)
+
 ## Images
 
-![rainbow-semantic](./img/rainbow-semantic.png)
+![basican](./img/basican.png)
 
-![visual-studio-2019-dark](./img/visual-studio-2019-dark.png)
+![intermediatese](./img/intermediatese.png)
+
+![advancedish](./img/advancedish.png)
+
+![syllabian](./img/syllabian.png)
+
+![elemental](./img/elemental.png)
